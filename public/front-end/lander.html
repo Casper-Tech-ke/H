@@ -80,26 +80,27 @@
     <link rel="preconnect" href="https://cdn.xcasper.space">
 <style>
   :root {
-    --primary: #4F46E5;
-    --primary-dark: #4338CA;
-    --secondary: #7C3AED;
+    color-scheme: dark;
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --secondary: #1E3A8A;
     --success: #22C55E;
     --warning: #EAB308;
     --danger: #EF4444;
-    --gray-50: #F9FAFB;
-    --gray-100: #F3F4F6;
-    --gray-600: #4B5563;
-    --gray-900: #111827;
-    --indigo-600: #4f46e5;
-  --indigo-700: #4338ca;
-  --indigo-100: #e0e7ff;
-  --gray-900: #111827;
-  --gray-800: #1f2937;
-  --gray-600: #4b5563;
-  --gray-400: #9ca3af;
-  --gray-100: #f3f4f6;
-  --gray-50: #f9fafb;
-  --white: #ffffff;
+    --gray-50: #0B1220;
+    --gray-100: #111C2F;
+    --gray-600: #A9B9CF;
+    --gray-900: #F1F5F9;
+    --indigo-600: #2563EB;
+  --indigo-700: #1D4ED8;
+  --indigo-100: #172554;
+  --gray-900: #F1F5F9;
+  --gray-800: #CBD5E1;
+  --gray-600: #A9B9CF;
+  --gray-400: #94A3B8;
+  --gray-100: #111C2F;
+  --gray-50: #0B1220;
+  --white: #F8FAFC;
   --yellow-500: #eab308;
   --yellow-300: #fde047;
   }
@@ -114,6 +115,7 @@
   
   body {
   background-color: var(--gray-50);
+  color: var(--gray-900);
   font-family: system-ui, -apple-system, sans-serif;
   width: 100%;
   /* overflow: hidden; */
@@ -1308,6 +1310,44 @@
   }
   }
   
+  body {
+    background: radial-gradient(ellipse at top, #142440 0%, #0b1220 62%);
+    color: #e2e8f0;
+  }
+
+  .header {
+    background-color: rgba(11, 18, 32, 0.9);
+    border: 1px solid rgba(96, 165, 250, 0.18);
+    box-shadow: 0 12px 36px rgba(2, 8, 23, 0.35);
+  }
+
+  .feature-card,
+  .bot-card,
+  .testimonial-card,
+  .pricing-card,
+  .stat-card {
+    background-color: #111c2f;
+    color: #e2e8f0;
+    border-color: #24334b;
+  }
+
+  .features-section,
+  .how-it-works,
+  .bots-section {
+    background-color: #0b1220;
+    color: #e2e8f0;
+  }
+
+  .step-card,
+  .coin-preview {
+    background-color: #111c2f;
+    color: #e2e8f0;
+    border-color: #24334b;
+  }
+
+  .feature-icon {
+    background-color: #172554;
+  }
 </style>
 </head>
 <body>
