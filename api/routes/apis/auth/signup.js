@@ -96,10 +96,10 @@ router.post('/signup', async (req, res) => {
         const normalizedEmail = normalizeEmail(email);
         
         
-        const allowedDomains = ['gmail.com', 'talkdrove.com'];
+        const allowedDomains = ['gmail.com', 'xcasper.space'];
         const domain = normalizedEmail.split('@')[1].toLowerCase();
         if (!allowedDomains.includes(domain)) {
-            return res.status(400).json({ success: false, message: 'Only Gmail and TalkDrove emails are allowed' });
+            return res.status(400).json({ success: false, message: 'Only Gmail and XCASPER SPACE emails are allowed' });
         }
 
         
@@ -144,9 +144,9 @@ router.post('/signup', async (req, res) => {
         
         try {
             await transporter.sendMail({
-                from: '"TalkDrove Verification" <msg@talkdrove.com>',
+                from: `"XCASPER SPACE Verification" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
                 to: email,
-                subject: 'Verify Your TalkDrove Account',
+                subject: 'Verify Your XCASPER SPACE Account',
                 html: `
                     <!DOCTYPE html>
                     <html>
@@ -162,14 +162,14 @@ router.post('/signup', async (req, res) => {
                                         <tr>
                                             <td style="padding: 30px 40px 20px; text-align: left; background-color: #ff9800; border-radius: 8px 8px 0 0;">
                                                 <h1 style="margin: 0; font-family: Arial, sans-serif; font-size: 24px; color: white;">
-                                                    Verify Your TalkDrove Account!
+                                                    Verify Your XCASPER SPACE Account!
                                                 </h1>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="padding: 20px 40px;">
                                                 <p style="margin: 0 0 20px; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #555555;">
-                                                    Thanks for signing up for TalkDrove! Please use the verification code below to complete your registration:
+                                                    Thanks for signing up for XCASPER SPACE! Please use the verification code below to complete your registration:
                                                 </p>
                                                 
                                                 <div style="background-color: #f8f9fa; border-radius: 6px; padding: 20px; text-align: center; margin: 30px 0;">

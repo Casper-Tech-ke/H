@@ -30,7 +30,7 @@ if (process.env.DB_HOST) {
         expiration: 5 * 24 * 60 * 60 * 1000,
     });
     app.use(session({
-        key: 'talkdrove-session',
+        key: 'xcasper-session',
         secret: process.env.SESSION_SECRET,
         store: sessionStore,
         resave: false,
@@ -57,7 +57,7 @@ const moderator = require('./api/routes/moderatorsRoutes.js');
 const authRoutes = require('./api/routes/authRoutes.js')
 const admin = require('./api/routes/adminRoutes.js')
 const botDetails = require('./api/routes/apis/userApis/apps/botDetails.js');
-const subscribe = require('./api/routes/apis/userApis/earnCoins/subscribeTalkDrove.js');
+const subscribe = require('./api/routes/apis/userApis/earnCoins/subscribeXcasper.js');
 
 
 
@@ -79,7 +79,7 @@ const countries = require('./api/routes/apis/userApis/countries.js');
 const invite = require('./api/routes/apis/userApis/invite/invite.js');
 const depositRequest = require('./api/routes/apis/userApis/depositRequest.js');
 const reportBots = require('./api/routes/apis/userApis/reportBots.js');
-const transferFromTalkDrove = require('./api/routes/apis/userApis/transferFromTalkDrove.js');
+const transferFromXcasper = require('./api/routes/apis/userApis/transferFromXcasper.js');
 const contactUs = require('./api/routes/apis/userApis/contactUs.js');
 const walletRoutes = require('./api/routes/apis/userApis/walletRoutes.js');
 const checkAppName = require('./api/routes/apis/userApis/checkAppName.js');
@@ -163,7 +163,7 @@ app.use('/', countries);
 app.use('/', invite);
 app.use('/', depositRequest);
 app.use('/', reportBots);
-app.use('/', transferFromTalkDrove);
+app.use('/', transferFromXcasper);
 app.use('/', contactUs);
 app.use('/', walletRoutes);
 app.use('/', devices);

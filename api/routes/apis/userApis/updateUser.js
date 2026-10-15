@@ -76,7 +76,7 @@ router.post('/upload-profile-picture', isLoggedIn, upload.single('profilePicture
 
         
         console.log('Uploading file to CDN...');
-        const cdnResponse = await axios.post('https://cdn.talkdrove.com/host/upload.php', formData, {
+        const cdnResponse = await axios.post('https://cdn.xcasper.space/host/upload.php', formData, {
             headers: {
                 ...formData.getHeaders()
             }
@@ -138,7 +138,7 @@ router.get('/get-profile-picture', isLoggedIn, async (req, res) => {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        const profilePicture = users[0].profile_picture || 'https://cdn.talkdrove.com/host/Images/profile.webp';
+        const profilePicture = users[0].profile_picture || 'https://cdn.xcasper.space/host/Images/profile.webp';
 
         res.json({ 
             success: true, 
@@ -232,7 +232,7 @@ router.post('/request-email-update', isLoggedIn, async (req, res) => {
             await senderTransporter.sendMail({
                 from: sender.email,
                 to: newEmail,
-                subject: '🔐 Verify Email Update - TalkDrove',
+                subject: '🔐 Verify Email Update - XCASPER SPACE',
                 html: `
                     <!DOCTYPE html>
                     <html>
@@ -283,8 +283,8 @@ router.post('/request-email-update', isLoggedIn, async (req, res) => {
                                         <tr>
                                             <td style="padding: 20px 40px 40px; text-align: center; border-top: 1px solid #eeeeee;">
                                                 <p style="margin: 0; font-family: Arial, sans-serif; font-size: 12px; color: #999999;">
-                                                    This is an automated message from TalkDrove Security. Please do not reply to this email.
-                                                    <br>© ${new Date().getFullYear()} TalkDrove. All rights reserved.
+                                                    This is an automated message from XCASPER SPACE Security. Please do not reply to this email.
+                                                    <br>© ${new Date().getFullYear()} XCASPER SPACE. All rights reserved.
                                                 </p>
                                             </td>
                                         </tr>

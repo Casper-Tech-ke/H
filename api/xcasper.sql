@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `talkdrove_HTD`
+-- Database: `xcasper_space`
 --
 
 -- --------------------------------------------------------
@@ -290,7 +290,7 @@ CREATE TABLE `email_senders` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `host` varchar(255) NOT NULL DEFAULT 'mail.talkdrove.cc.nf',
+  `host` varchar(255) NOT NULL DEFAULT 'smtp-relay.brevo.com',
   `port` int(11) NOT NULL DEFAULT 587,
   `is_active` tinyint(1) DEFAULT 1,
   `daily_limit` int(11) DEFAULT 150,

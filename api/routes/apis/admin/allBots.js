@@ -66,9 +66,9 @@ async function sendBotStatusEmail(devEmail, botName, status, botId = null) {
         ? `Your Bot Request for "${botName}" Has Been Approved`
         : `Your Bot Request for "${botName}" Has Been Rejected`;
     
-    const dashboardUrl = 'https://host.talkdrove.com/dashboard/my-bots';
+    const dashboardUrl = 'https://xcasper.space/dashboard/my-bots';
     const deploymentUrl = botId 
-        ? `https://host.talkdrove.com/dashboard/select-bot/prepare-deployment?botId=${botId}`
+        ? `https://xcasper.space/dashboard/select-bot/prepare-deployment?botId=${botId}`
         : null;
     
     const htmlContent = status === 'approved' 
@@ -118,7 +118,7 @@ async function sendBotStatusEmail(devEmail, botName, status, botId = null) {
                                         </div>
                                         
                                         <p style="margin: 30px 0 10px; font-family: Arial, sans-serif; font-size: 14px; color: #666666;">
-                                            Thank you for choosing TalkDrove for your bot hosting needs!
+                                            Thank you for choosing XCASPER SPACE for your bot hosting needs!
                                         </p>
                                     </td>
                                 </tr>
@@ -179,7 +179,7 @@ async function sendBotStatusEmail(devEmail, botName, status, botId = null) {
 
     try {
         await transporter.sendMail({
-            from: '"TalkDrove Bot Service" <msg@talkdrove.com>',
+            from: `"XCASPER SPACE Bot Service" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
             to: devEmail,
             subject: subject,
             html: htmlContent
@@ -354,7 +354,7 @@ router.post('/admin/bot/:id/toggle-status', isAdmin, async (req, res) => {
                                         </p>
                                         
                                         <div style="text-align: center; margin: 30px 0;">
-                                            <a href="https://host.talkdrove.com/dashboard/my-bots" style="display: inline-block; padding: 12px 24px; background-color: #607D8B; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; border-radius: 4px;">
+                                            <a href="https://xcasper.space/dashboard/my-bots" style="display: inline-block; padding: 12px 24px; background-color: #607D8B; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; border-radius: 4px;">
                                                 Go to My Bots Dashboard
                                             </a>
                                         </div>
@@ -402,13 +402,13 @@ router.post('/admin/bot/:id/toggle-status', isAdmin, async (req, res) => {
                                         </p>
                                         
                                         <div style="text-align: center; margin: 30px 0;">
-                                            <a href="https://host.talkdrove.com/dashboard/my-bots" style="display: inline-block; padding: 12px 24px; background-color: #2196F3; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; border-radius: 4px;">
+                                            <a href="https://xcasper.space/dashboard/my-bots" style="display: inline-block; padding: 12px 24px; background-color: #2196F3; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; border-radius: 4px;">
                                                 Go to My Bots Dashboard
                                             </a>
                                         </div>
                                         
                                         <p style="margin: 30px 0 10px; font-family: Arial, sans-serif; font-size: 14px; color: #666666;">
-                                            Thank you for choosing TalkDrove for your bot hosting needs!
+                                            Thank you for choosing XCASPER SPACE for your bot hosting needs!
                                         </p>
                                     </td>
                                 </tr>
@@ -422,7 +422,7 @@ router.post('/admin/bot/:id/toggle-status', isAdmin, async (req, res) => {
         
         try {
             await transporter.sendMail({
-                from: '"TalkDrove Bot Service" <msg@talkdrove.com>',
+                from: `"XCASPER SPACE Bot Service" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
                 to: bot[0].dev_email,
                 subject: emailSubject,
                 html: htmlContent

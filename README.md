@@ -1,6 +1,6 @@
-# Host TalkDrove (HTD-V1)
+# XCASPER SPACE
 
-Host TalkDrove is a Node.js application that provides a complete web interface for hosting and managing WhatsApp bots.
+XCASPER SPACE is a Node.js application that provides a complete web interface for hosting and managing WhatsApp bots.
 It offers authentication, dashboard views, admin and moderator tools, deployment helpers and wallet
 features. The project uses **Express** for the HTTP server, **EJS** for templating and **MySQL** for persistence.
 
@@ -41,8 +41,7 @@ views/                 # EJS views used for server-rendered pages
 
 ## Environment Variables
 
-Create a `.env` file in the project root and provide the following variables.
-The included `.env` example lists all available keys:
+Create a `.env` file in the project root and configure the following variables:
 
 ```
 DB_HOST=
@@ -52,15 +51,31 @@ DB_NAME=
 SESSION_SECRET=
 NODE_ENV=production
 PORT=3000
-SITE_URL=
+SITE_URL=https://xcasper.space
 MAINTENANCE_MODE=false
-HTD_API_KEY=
+XCASPER_API_KEY=
 CREEM_API_URL=
 CREEM_API_KEY=
+SMTP_HOST=smtp-relay.brevo.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=
+SMTP_PASSWORD=
+SMTP_FROM=
+ADMIN_EMAIL=
+SUPPORT_EMAIL=
 ```
 
 `SESSION_SECRET` should be a random string used to sign cookies. The database settings should point to a
 MySQL server. Update `PORT` if you want the server to listen on a different port.
+For Brevo, create SMTP credentials in the Brevo transactional email settings. Use the SMTP login as
+`SMTP_USER` and the generated SMTP key as `SMTP_PASSWORD` (not the Brevo API key). Port 587 uses
+STARTTLS. Set `SMTP_FROM` to a verified sender address, and set `ADMIN_EMAIL` and `SUPPORT_EMAIL` to
+the addresses that should receive administrative notifications and support requests.
+
+The auth and password-reset messages use these SMTP settings. Bot and admin messages can also use
+senders configured at `/admin/emails`; use `smtp-relay.brevo.com`, port `587`, and your Brevo SMTP
+login and SMTP key.
 
 ## Running the Application
 
@@ -80,12 +95,12 @@ For additional details about preparing the environment and database, see
 
 On a fresh clone with no database configured you can visit `/install` after
 starting the server. This page lets you provide MySQL credentials and create the
-first admin account. The installer imports `api/talkdrove.sql`, saves the
+first admin account. The installer imports `api/xcasper.sql`, saves the
 database details into `.env` and then removes itself for security.
 
 ## Deploying Bots to Heroku
 
-TalkDrove integrates with the Heroku platform for bot hosting. When a user starts
+XCASPER SPACE integrates with the Heroku platform for bot hosting. When a user starts
 a deployment the server picks a valid Heroku API key with available app slots,
 creates an app, sets environment variables and triggers a build from the bot's
 GitHub repository. Deployment cost is deducted from the user's coin balance and a

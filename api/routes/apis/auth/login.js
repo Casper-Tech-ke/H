@@ -221,9 +221,9 @@ router.post('/login', async (req, res) => {
 
         try {
             await transporter.sendMail({
-                from: '"TalkDrove Security" <msg@talkdrove.com>',
+                from: `"XCASPER SPACE Security" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
                 to: user.email,
-                subject: '🔐 Verify New Device Login - TalkDrove',
+                subject: '🔐 Verify New Device Login - XCASPER SPACE',
                 html: `
                                         <!DOCTYPE html>
                     <html>
@@ -298,8 +298,8 @@ router.post('/login', async (req, res) => {
                                         <tr>
                                             <td style="padding: 20px 40px 40px; text-align: center; border-top: 1px solid #eeeeee;">
                                                 <p style="margin: 0; font-family: Arial, sans-serif; font-size: 12px; color: #999999;">
-                                                    This is an automated message from TalkDrove Security. Please do not reply to this email.
-                                                    <br>© ${new Date().getFullYear()} TalkDrove. All rights reserved.
+                                                    This is an automated message from XCASPER SPACE Security. Please do not reply to this email.
+                                                    <br>© ${new Date().getFullYear()} XCASPER SPACE. All rights reserved.
                                                 </p>
                                             </td>
                                         </tr>

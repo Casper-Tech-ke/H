@@ -68,7 +68,7 @@ router.all('/dashboard/select-bot/prepare-deployment', isLoggedIn, async (req, r
         if (bot.is_suspended) {
             return res.render('botSuspended', {
                 bot: bot,
-                message: 'Sorry, this bot has been suspended due to a violation of our Terms of Service. This action was taken to maintain the safety and quality of our platform. If you believe this was done in error, please contact our support team at support@talkdrove.com with your Bot ID for further assistance.\nWe appreciate your understanding as we work to maintain a secure environment for all users.'
+                message: `Sorry, this bot has been suspended due to a violation of our Terms of Service. This action was taken to maintain the safety and quality of our platform. If you believe this was done in error, please contact our support team at ${process.env.SUPPORT_EMAIL || process.env.SMTP_FROM || process.env.SMTP_USER} with your Bot ID for further assistance.\nWe appreciate your understanding as we work to maintain a secure environment for all users.`
             });
         }
 

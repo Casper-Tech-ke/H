@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Request new WhatsApp bots for Bot.TalkDrove">
-    <title>Request a New Bot || H.TD</title>
+    <meta name="description" content="Request new WhatsApp bots for XCASPER SPACE">
+    <title>Request a New Bot || XCASPER SPACE</title>
     
-    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.talkdrove.com/host/Images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.talkdrove.com/host/Images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.talkdrove.com/host/Images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.xcasper.space/host/Images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.xcasper.space/host/Images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.xcasper.space/host/Images/favicon/favicon-16x16.png">
         <link rel="stylesheet" href="./styles/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -549,7 +549,7 @@
             </li>
             <li>
                 <i class="fas fa-link"></i>
-                <span>Have your documentation website URL ready in talkdrove.json (Most important part)</span>
+                <span>Have your documentation website URL ready in xcasper.json (Most important part)</span>
             </li>
             <li>
                 <i class="fas fa-info"></i>
@@ -576,7 +576,7 @@
     
     <header class="header">
         <div class="header-content">
-            <h1><a class="logo" href="/dashboard">H.TD</a></h1>
+            <h1><a class="logo" href="/dashboard">XCASPER SPACE</a></h1>
             <nav class="nav-controls">
                 <button id="deployBotBtn" class="btn btn-primary" onclick="window.location.href='/dashboard/select-bot'">
                     <i class="fas fa-plus"></i>
@@ -586,7 +586,7 @@
                     <i class="fas fa-adjust"></i>
                 </button>
                 <div class="profile-container">
-                    <img src="https://cdn.talkdrove.com/host/Images/profile.webp" alt="Profile" class="profile-pic" id="profileBtn">
+                    <img src="https://cdn.xcasper.space/host/Images/profile.webp" alt="Profile" class="profile-pic" id="profileBtn">
                     <div class="dropdown" id="profileDropdown">
                         <a href="/dashboard/my-bots" class="dropdown-item">
                             <i class="fas fa-robot"></i>
@@ -632,7 +632,7 @@
             
             <div class="notice-box">
                 <i class="fas fa-info-circle"></i>
-                <p>Other bot information including name, environment variables, and documentation link will be automatically extracted from your repository's <code>talkdrove.json</code> file. <a target="_blank" style="color:var(--secondary-color); text-decoration: none;" href="https://raw.githubusercontent.com/HyHamza/BYTE-MD/main/talkdrove.json">Click here</a> to get the template of talkdrove.json</p>
+                <p>Other bot information including name, environment variables, and documentation link will be automatically extracted from your repository's <code>xcasper.json</code> file. <a target="_blank" style="color:var(--secondary-color); text-decoration: none;" href="https://raw.githubusercontent.com/HyHamza/BYTE-MD/main/xcasper.json">Click here</a> to get the template of xcasper.json</p>
             </div>
 
             <button type="submit" class="btn btn-primary">
@@ -667,7 +667,7 @@
     document.getElementById('loading-text').textContent = 'Fetching configuration from repository...';
 
     try {
-        // First, fetch the talkdrove.json configuration from the repository
+        // First, fetch the xcasper.json configuration from the repository
         const response = await fetch('/api/fetch-repo-config', {
             method: 'POST',
             headers: { 
@@ -978,7 +978,7 @@ function simplifyForm() {
         
         <div class="notice-box">
             <i class="fas fa-info-circle"></i>
-            <p>Other bot information including name, environment variables, and documentation link will be automatically extracted from your repository's <code>talkdrove.json</code> file.</p>
+            <p>Other bot information including name, environment variables, and documentation link will be automatically extracted from your repository's <code>xcasper.json</code> file.</p>
         </div>
 
         <button type="submit" class="btn btn-primary">

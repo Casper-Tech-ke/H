@@ -16,7 +16,7 @@ const validateApiKey = (req, res, next) => {
     
     const apiKey = authHeader.split(' ')[1];
     
-    if (apiKey !== process.env.HTD_API_KEY) {
+    if (apiKey !== process.env.XCASPER_API_KEY) {
         return res.status(401).json({
             success: false,
             message: 'Invalid API key'

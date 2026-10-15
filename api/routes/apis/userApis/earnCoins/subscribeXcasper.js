@@ -15,7 +15,7 @@ router.get('/api/youtube-subscription-status', isLoggedIn, async (req, res) => {
         const email = req.session.user.email;
         const [subscribed] = await pool.query(
             'SELECT id FROM youtube_subscriptions WHERE user_email = ? AND channel_id = ?',
-            [email, 'TalkDrove']
+            [email, 'XCASPER SPACE']
         );
         
         res.json({ subscribed: subscribed.length > 0 });
@@ -29,7 +29,7 @@ router.post('/api/youtube-subscribe', isLoggedIn, async (req, res) => {
     let retries = 0;
     const email = req.session.user.email;
     const REWARD_AMOUNT = 10;
-    const CHANNEL_ID = 'TalkDrove';
+    const CHANNEL_ID = 'XCASPER SPACE';
 
     async function attemptTransaction() {
         const connection = await pool.getConnection();
@@ -81,7 +81,7 @@ router.post('/api/youtube-subscribe', isLoggedIn, async (req, res) => {
                 `INSERT INTO coin_transactions 
                 (recipient_email, amount, transaction_type, description) 
                 VALUES (?, ?, ?, ?)`,
-                [email, REWARD_AMOUNT, 'youtube_subscribe_reward', 'Reward for subscribing to TalkDrove']
+                [email, REWARD_AMOUNT, 'youtube_subscribe_reward', 'Reward for subscribing to XCASPER SPACE']
             );
 
             await connection.commit();

@@ -37,9 +37,9 @@ router.post('/request-password-reset', async (req, res) => {
         });
 
         const emailTemplate = {
-            from: '"TalkDrove Security" <msg@talkdrove.com>',
+            from: `"XCASPER SPACE Security" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
             to: email,
-            subject: 'Password Reset Request - TalkDrove',
+            subject: 'Password Reset Request - XCASPER SPACE',
             html: `
                 <!DOCTYPE html>
                 <html>
@@ -62,7 +62,7 @@ router.post('/request-password-reset', async (req, res) => {
                                     <tr>
                                         <td style="padding: 30px 40px;">
                                             <p style="margin: 0 0 20px; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #333333;">
-                                                You have requested a password reset for your TalkDrove account. Use the verification code below to reset your password:
+                                                You have requested a password reset for your XCASPER SPACE account. Use the verification code below to reset your password:
                                             </p>
                                             <div style="background-color: #f8f9fa; border-radius: 6px; padding: 20px; text-align: center; margin: 30px 0;">
                                                 <span style="font-family: 'Courier New', monospace; font-size: 32px; font-weight: bold; color: #ff9800; letter-spacing: 5px;">
@@ -78,7 +78,7 @@ router.post('/request-password-reset', async (req, res) => {
                                         <td style="padding: 20px 40px 40px; text-align: center; border-top: 1px solid #eeeeee;">
                                             <p style="margin: 0; font-family: Arial, sans-serif; font-size: 12px; color: #999999;">
                                                 If you did not request this password reset, please ignore this email or contact support.
-                                                <br>© ${new Date().getFullYear()} TalkDrove. All rights reserved.
+                                                <br>© ${new Date().getFullYear()} XCASPER SPACE. All rights reserved.
                                             </p>
                                         </td>
                                     </tr>
@@ -205,9 +205,9 @@ router.post('/reset-password', async (req, res) => {
 
         
         const confirmationEmail = {
-            from: '"TalkDrove Security" <msg@talkdrove.com>',
+            from: `"XCASPER SPACE Security" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
             to: email,
-            subject: 'Password Reset Successful - TalkDrove',
+            subject: 'Password Reset Successful - XCASPER SPACE',
             html: `
                 <!DOCTYPE html>
                 <html>
@@ -230,7 +230,7 @@ router.post('/reset-password', async (req, res) => {
                                     <tr>
                                         <td style="padding: 30px 40px;">
                                             <p style="margin: 0 0 20px; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #333333;">
-                                                Your TalkDrove account password has been successfully reset. You can now log in with your new password.
+                                                Your XCASPER SPACE account password has been successfully reset. You can now log in with your new password.
                                             </p>
                                             <p style="margin: 20px 0 0; font-family: Arial, sans-serif; font-size: 14px; color: #666666;">
                                                 If you did not make this change, please contact our support team immediately.
@@ -240,7 +240,7 @@ router.post('/reset-password', async (req, res) => {
                                     <tr>
                                         <td style="padding: 20px 40px 40px; text-align: center; border-top: 1px solid #eeeeee;">
                                             <p style="margin: 0; font-family: Arial, sans-serif; font-size: 12px; color: #999999;">
-                                                © ${new Date().getFullYear()} TalkDrove. All rights reserved.
+                                                © ${new Date().getFullYear()} XCASPER SPACE. All rights reserved.
                                             </p>
                                         </td>
                                     </tr>

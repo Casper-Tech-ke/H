@@ -12,7 +12,7 @@ function isInstalled() {
 }
 
 const envPath = path.join(__dirname, '../../.env');
-const sqlPath = path.join(__dirname, '../talkdrove.sql');
+const sqlPath = path.join(__dirname, '../xcasper.sql');
 
 router.get('/install', (req, res) => {
   if (isInstalled()) {

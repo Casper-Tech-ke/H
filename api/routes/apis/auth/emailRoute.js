@@ -17,8 +17,8 @@ class EmailSenderManager {
             const {
                 email,
                 password,
-                host = 'mail.talkdrove.cc.nf',
-                port = 587,
+                host = process.env.SMTP_HOST || 'smtp-relay.brevo.com',
+                port = Number(process.env.SMTP_PORT || 587),
                 daily_limit = 150
             } = emailData;
 
@@ -95,11 +95,11 @@ async updateEmailSender(id, updateData) {
             await connection.query(`
                 UPDATE email_senders 
                 SET current_daily_count = 0, is_active = 1, last_reset_date = CURRENT_DATE
-                WHERE email = 'msg@talkdrove.com'
-            `);
-            console.log('Hourly count for msg@talkdrove.com has been reset successfully.');
+                WHERE email = ?
+            `, [process.env.SMTP_USER || '']);
+            console.log('Hourly email sender count has been reset successfully.');
         } catch (error) {
-            console.error('Error resetting hourly count for msg@talkdrove.com:', error.message);
+            console.error('Error resetting hourly email sender count:', error.message);
         } finally {
             connection.release();
         }
@@ -221,7 +221,7 @@ function setupEmailResetJobs(pool) {
     cron.schedule('1 */1 * * *', async () => {
         try {
             await emailSenderManager.resetHourlyMsgEmail();
-            console.log('Hourly email counts reset for msg@talkdrove.com.');
+            console.log('Hourly email sender counts reset.');
         } catch (error) {
             console.error('Error resetting hourly email counts:', error.stack);
         }

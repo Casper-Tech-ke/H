@@ -9,14 +9,14 @@ const axios = require('axios');
 async function validateRepoOwnership(repoUrl, userEmail) {
     try {
         
-        const rawUrl = `https://raw.githubusercontent.com/${repoUrl}/main/talkdrove.json?t=${Date.now()}`;
+        const rawUrl = `https://raw.githubusercontent.com/${repoUrl}/main/xcasper.json?t=${Date.now()}`;
         
         const response = await axios.get(rawUrl);
         
         if (response.status !== 200) {
             return { 
                 valid: false, 
-                error: 'Could not find talkdrove.json in repository',
+                error: 'Could not find xcasper.json in repository',
                 code: 404
             };
         }
@@ -25,7 +25,7 @@ async function validateRepoOwnership(repoUrl, userEmail) {
         if (response.data['owner-verification'] !== userEmail) {
             return { 
                 valid: false, 
-                error: 'The email in talkdrove.json does not match your account email',
+                error: 'The email in xcasper.json does not match your account email',
                 code: 403
             };
         }
@@ -47,12 +47,12 @@ router.post('/api/fetch-repo-config', isLoggedIn, async (req, res) => {
     
     try {
         
-        const rawUrl = `https://raw.githubusercontent.com/${repoUrl}/main/talkdrove.json`;
+        const rawUrl = `https://raw.githubusercontent.com/${repoUrl}/main/xcasper.json`;
         
         const response = await axios.get(rawUrl);
         
         if (response.status !== 200) {
-            return res.status(404).json({ error: 'Could not find talkdrove.json in repository' });
+            return res.status(404).json({ error: 'Could not find xcasper.json in repository' });
         }
         
         
@@ -77,7 +77,7 @@ router.post('/api/verify-bot-ownership', isLoggedIn, async (req, res) => {
     } else {
         return res.status(403).json({ 
             error: 'Email verification failed',
-            message: 'The email in talkdrove.json does not match your account email'
+            message: 'The email in xcasper.json does not match your account email'
         });
     }
 });
@@ -153,8 +153,8 @@ router.post('/bot-request', isLoggedIn, async (req, res) => {
         
         try {
             await transporter.sendMail({
-                from: '"TalkDrove Bot Service" <msg@talkdrove.com>',
-                to: 'talkdrove@gmail.com',
+                from: `"XCASPER SPACE Bot Service" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+                to: process.env.ADMIN_EMAIL,
                 subject: `New Bot Request: ${name}`,
                 html: `
                     <!DOCTYPE html>
@@ -205,7 +205,7 @@ router.post('/bot-request', isLoggedIn, async (req, res) => {
                                                 </table>
                                                 
                                                 <div style="text-align: center; margin: 30px 0;">
-                                                    <a href="https://host.talkdrove.com/hamza" style="display: inline-block; padding: 12px 24px; background-color: #2196F3; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; border-radius: 4px;">
+                                                    <a href="https://xcasper.space/hamza" style="display: inline-block; padding: 12px 24px; background-color: #2196F3; color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; border-radius: 4px;">
                                                         Review Bot Request
                                                     </a>
                                                 </div>
@@ -651,7 +651,7 @@ router.post('/bot/:id/update-from-repo', isLoggedIn, async (req, res) => {
 
         res.json({
             success: true,
-            message: 'Bot updated successfully with information from talkdrove.json'
+            message: 'Bot updated successfully with information from xcasper.json'
         });
     } catch (error) {
         await connection.rollback();
